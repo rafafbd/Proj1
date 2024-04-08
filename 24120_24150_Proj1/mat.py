@@ -14,4 +14,5 @@ class Matematica:
     
 
     def trianguloDePascal(self):
-        pass
+        _k = 0
+        _n = 0
