@@ -4,7 +4,14 @@ class Matematica:
         self.__numeroBase = int
 
     def fatorial (x :int) -> int:
-        pass
+        _produtorio = 2
+        _valor = 1
+        while _produtorio <= x:
+            _valor *= _produtorio
+            _produtorio += 1
+
+        return _valor
+    
 
     def trianguloDePascal(self):
         pass
