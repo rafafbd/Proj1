@@ -14,4 +14,9 @@ class Obra:
         pass
     def preencherCampos(self, novoAno, novoMes, novoAutor, novoNome, novoEstilo, novoValor, novaURL):
         pass
-    def 
+    def fecharArquivo(self):
+        pass
+    def __str__(self) -> str:
+        pass
+    def compararCom(self, outraObra: Obra) -> int:
+        pass
