@@ -1,12 +1,12 @@
 class Obra:
     def __init__(self, nomeArq: str, paraGravacao: bool) -> None:
-        self.AnoDaObra = ''
-        self.MesDaobra = ''
-        self.AutorDaObra = ''
-        self.NomeDaObra = ''
-        self.Estilo = ''
+        self.AnoDaObra: str[4] = ''
+        self.MesDaobra: str[2] = ''
+        self.AutorDaObra: str[20] = ''
+        self.NomeDaObra: str[20] = ''
+        self.Estilo: str[15] = ''
         self.ValorEstimado = 0.0
-        self.urlFoto = ''
+        self.urlFoto: str[100] = ''
 
     def lerCamposDoArquivo(self):
         pass
