@@ -2,6 +2,16 @@
 import os
 import mat
 import obras
+from tkinter import filedialog
+
+def ListagemDeObras():
+    tipo_de_arquivo = (
+        ("Arquivo de texto", "*.txt*"),
+    )
+    nomeDoArquivo = filedialog.askopenfilename(title= 'Selecione o arquivo',
+                                               initialdir= r'c:\temp',
+                                               multiple = False,
+                                               filetypes= tipo_de_arquivo)
 
 def fazer(escolha):
     opcoesPrevistas =  "01234"
@@ -12,7 +22,7 @@ def fazer(escolha):
         case "0":
             print("Programa finalizado. Obrigado pelo uso!")
         case "1":
-            
+
             tecla = input("Pressione [enter] para continuar: ")
         case "2":
 
