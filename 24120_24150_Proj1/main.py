@@ -40,11 +40,11 @@ def SeletorDeOpcoes():
     while opcao != '0':
         os.system("cls") or None
         print("Seletor de opções\n")
-        print("0 - Terminar programa")
-        print("1 - Cadastro de obras de arte")
-        print("2 - Listagem de obras de arte")
-        print("3 - Página web de obras de arte")
-        print("4 - Triângulo de Pascal")
+        print("[0] --> Terminar programa")
+        print("[1] --> Cadastro de obras de arte")
+        print("[2] --> Listagem de obras de arte")
+        print("[3] --> Página web de obras de arte")
+        print("[4] --> Triângulo de Pascal")
 
 if __name__ == '__main__':
     SeletorDeOpcoes()
