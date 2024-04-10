@@ -18,5 +18,5 @@ class Obra:
         pass
     def __str__(self) -> str:
         pass
-    def compararCom(self, outraObra: Obra) -> int:
+    def compararCom(self, outraObra) -> int:
         pass
