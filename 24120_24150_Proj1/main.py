@@ -12,7 +12,20 @@ def ListagemDeObras():
                                                initialdir= r'c:\temp',
                                                multiple = False,
                                                filetypes= tipo_de_arquivo)
+    return nomeDoArquivo
     
+
+def opcao1():
+    obra = obras.Obra(ListagemDeObras(), True)
+    ano = input("Digite o nome da obra: ")
+    mes = input("Digite o mês da obra: ")
+    autor = input("Digite o nome do autor da obra")
+    nome = input("Digite o nome da obra: ")
+    estilo = input("Digite o estilo da obra: ")
+    valor = float(input("Informe o valor estimado da obra: "))
+    url = input("Digite o link url da imagem da obra: ")
+    obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
+    obra.gravarCamposNoArquivo()
 
 def opcao4():
     math = mat.Matematica()
