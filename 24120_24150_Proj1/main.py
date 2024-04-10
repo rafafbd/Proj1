@@ -28,6 +28,11 @@ def opcao1():
     obra.gravarCamposNoArquivo()
     obra.fecharArquivo()
 
+def opcao3():
+    obra = obras.Obra()
+    obra2 = open(ListagemDeObras(), False)
+    obra.lerCamposDoArquivo(obra2)
+
 def opcao4():
     math = mat.Matematica()
     base = int(input("Digite quantas linhas do triângulo de Pascal devem ser mostradas: "))
@@ -53,7 +58,7 @@ def fazer(escolha):
             
             tecla = input("Pressione [enter] para continuar: ")
         case "3":
-
+            opcao3()
             tecla = input("Pressione [enter] para continuar: ")
         case "4":
             opcao4()
