@@ -22,7 +22,7 @@ class Matematica:
             k = 0
             linha = ''
             while k <= n:
-                num = int(self.fatorial(n) / self.fatorial(k) * self.fatorial(n-k))
+                num = int(self.fatorial(n) / (self.fatorial(k) * self.fatorial(n-k)))
                 k += 1
                 num = str(num)
                 linha += num
