@@ -30,14 +30,14 @@ class Obra:
         self.MesDaobra = novoMes.rjust(2, " ")
         self.AutorDaObra = novoAutor.ljust(20, " ")
         self.NomeDaObra = novoNome.ljust(20, " ")
-        self.Estilo = novoEstilo.ljust
+        self.Estilo = novoEstilo.ljust(15, " ")
         novoValor = str(novoValor)
         self.ValorEstimado = novoValor.ljust(9, " ")
         self.urlFoto = novaURL.ljust(100, " ")
     def fecharArquivo(self):
         self._arquivo.close()
     def __str__(self) -> str:
-        linha = self.AnoDaObra + self.AutorDaObra + self.Estilo + self.MesDaobra + self.NomeDaObra + str(self.ValorEstimado) + self.urlFoto
+        linha = self.AnoDaObra + self.MesDaobra + self.Estilo + self.NomeDaObra + self.AutorDaObra + str(self.ValorEstimado) + self.urlFoto
         return linha
     def compararCom(self, outraObra) -> int:
         pass

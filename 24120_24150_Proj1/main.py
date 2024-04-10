@@ -17,7 +17,7 @@ def ListagemDeObras():
 
 def opcao1():
     obra = obras.Obra(ListagemDeObras(), True)
-    ano = input("Digite o nome da obra: ")
+    ano = input("Digite o ano da obra: ")
     mes = input("Digite o mês da obra: ")
     autor = input("Digite o nome do autor da obra")
     nome = input("Digite o nome da obra: ")
@@ -26,6 +26,7 @@ def opcao1():
     url = input("Digite o link url da imagem da obra: ")
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
     obra.gravarCamposNoArquivo()
+    obra.fecharArquivo()
 
 def opcao4():
     math = mat.Matematica()
@@ -46,7 +47,7 @@ def fazer(escolha):
             os.system("cls") or None
             print("Programa finalizado. Obrigado pelo uso!")
         case "1":
-
+            opcao1()
             tecla = input("Pressione [enter] para continuar: ")
         case "2":
             
