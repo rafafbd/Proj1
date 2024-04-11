@@ -14,9 +14,6 @@ def ListagemDeObras():
                                                filetypes= tipo_de_arquivo)
     return nomeDoArquivo
     
-def FazerRelatorio():
-    arqRelatorio = open("obras.html", "a+")
-    arqRelatorio.write("")
 
 def opcao1():
     obra = obras.Obra(ListagemDeObras(), True)
@@ -31,11 +28,92 @@ def opcao1():
     obra.gravarCamposNoArquivo()
     obra.fecharArquivo()
 
-def opcao3():
-    obra = obras.Obra()
-    obra2 = open(ListagemDeObras(), False)
-    obra.lerCamposDoArquivo(obra2)
+def opcao2():
+    somatoria = 0
+    contador = 0
+    Obra = obras.Obra(ListagemDeObras(), "r")
+    while Obra.lerCamposDoArquivo() != "":
+        print(Obra.lerCamposDoArquivo())
+        somatoria += Obra.ValorEstimado
+        contador += 1
+    print(f"      Número de obras: {contador}                  Valor: {somatoria}")
+        
 
+def opcao3():
+    obra1 = obras.Obra(ListagemDeObras(), False)
+    leitura = open(obra1._arquivo)
+    arqRelatorio = open("obras.html", "w")
+    estrutura_html = '''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Obras</title>
+    <style>
+        table, th, tr, td{
+            border-collapse: collapse;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        .titulo{
+            background-color: rgb(126, 199, 231);
+        }
+
+        .subDivisoes{
+            background-color: rgb(209, 254, 254);
+        }
+
+        .pintado{
+            background-color: rgb(252, 252, 181);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <tr class="titulo">
+                <th colspan="6">RELATÓRIO DE OBRAS DA GALERIA VIRTUAL</th>
+            </tr>
+
+            
+            '''
+    while leitura.readline() != "":
+        linha = leitura.readline()
+        estrutura_html += f'''
+            <tr>
+                <td>{linha[0:4]}/{linha[4:6]}</td>
+                <td>{linha[21:41]}</td>
+                <td>{linha[6:21]}</td>
+                <td>{linha[41:61]}</td>
+                <td>{linha[61:71]}</td>
+                <td><img scr="{linha[71:171]}"></td>
+            </tr>
+
+            <tr class="subDivisoes">
+                <th colspan="4">Total</th>
+                <th></th>
+                <th></th>
+            </tr>
+        '''
+
+    estrutura_html += f'''
+            <tr class="titulo">
+                <th colspan="4">Total Geral</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+        '''
+    
+    
+
+    
 def opcao4():
     math = mat.Matematica()
     base = int(input("Digite quantas linhas do triângulo de Pascal devem ser mostradas: "))
@@ -58,7 +136,7 @@ def fazer(escolha):
             opcao1()
             tecla = input("Pressione [enter] para continuar: ")
         case "2":
-            
+            opcao2()
             tecla = input("Pressione [enter] para continuar: ")
         case "3":
             opcao3()
