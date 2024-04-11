@@ -14,6 +14,9 @@ def ListagemDeObras():
                                                filetypes= tipo_de_arquivo)
     return nomeDoArquivo
     
+def FazerRelatorio():
+    arqRelatorio = open("obras.html", "a+")
+    arqRelatorio.write("")
 
 def opcao1():
     obra = obras.Obra(ListagemDeObras(), True)
