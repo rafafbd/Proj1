@@ -2,7 +2,13 @@
 import os
 import mat
 import obras
+import tkinter
 from tkinter import filedialog
+
+
+objeto = tkinter.Tk() # Instaciação da classe Tk
+objeto.withdraw()
+objeto.attributes("-topmost", True) # É para o explorador de arquivos aparecer em cima do visual studio code
 
 def ListagemDeObras():
     tipo_de_arquivo = (
