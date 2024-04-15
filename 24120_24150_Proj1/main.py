@@ -32,20 +32,25 @@ def opcao1():
     url = input("Digite o link url da imagem da obra: ")
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
     obra.gravarCamposNoArquivo()
+    comando = 'sort z:\\dados\\dados.txt /o ordenado.txt /+1'
+    os.system(comando) or None
     obra.fecharArquivo()
 
 def opcao2():
     somatoria = 0
     contador = 0
-    Obra = obras.Obra(ListagemDeObras(), "r")
+    Obra = obras.Obra(ListagemDeObras(), False)
     while Obra.lerCamposDoArquivo() != "":
         print(Obra.lerCamposDoArquivo())
-        somatoria += Obra.ValorEstimado
+        somatoria += float(Obra.ValorEstimado)
         contador += 1
     print(f"      Número de obras: {contador}                  Valor: {somatoria}")
         
 
 def opcao3():
+    contador = 0
+    ano_anterior = 0.0
+    valores_do_mesmo_ano = 0 
     obra1 = obras.Obra(ListagemDeObras(), False)
     leitura = open(obra1._arquivo)
     arqRelatorio = open("obras.html", "w")
@@ -88,6 +93,7 @@ def opcao3():
             '''
     while leitura.readline() != "":
         linha = leitura.readline()
+        ano_anterior = linha[0:4]
         estrutura_html += f'''
             <tr>
                 <td>{linha[0:4]}/{linha[4:6]}</td>
@@ -98,12 +104,15 @@ def opcao3():
                 <td><img scr="{linha[71:171]}"></td>
             </tr>
 
-            <tr class="subDivisoes">
-                <th colspan="4">Total</th>
-                <th></th>
-                <th></th>
-            </tr>
         '''
+        while ano_anterior == linha[0:4]:
+
+                estrutura_html += '''
+                    <tr class="subDivisoes">
+                        <th colspan="4">Total</th>
+                        <th></th>
+                    </tr>
+                        '''
 
     estrutura_html += f'''
             <tr class="titulo">

@@ -11,16 +11,15 @@ class Obra:
         self._arquivo = open(nomeArq, "a" if paraGravacao else "r")
 
     def lerCamposDoArquivo(self):
-        if not self._arqParaGravacao:
-            linha: str = self._arquivo.readline()
-            self.AnoDaObra = linha[0:4]
-            self.MesDaobra = linha[4:6]
-            self.Estilo = linha[6:21]
-            self.NomeDaObra = linha[21:41]
-            self.AutorDaObra = linha[41:61]
-            self.ValorEstimado = linha[61:71]
-            self.urlFoto = linha[71:171]
-            return linha
+        linha = self._arquivo.readline()
+        self.AnoDaObra = linha[0:4]
+        self.MesDaobra = linha[4:6]
+        self.Estilo = linha[6:21]
+        self.NomeDaObra = linha[21:41]
+        self.AutorDaObra = linha[41:61]
+        self.ValorEstimado = linha[62:71]
+        self.urlFoto = linha[71:171]
+        return linha
 
     def gravarCamposNoArquivo(self):
         self._arquivo.write(self.__str__())
