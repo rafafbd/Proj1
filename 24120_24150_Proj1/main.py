@@ -4,6 +4,7 @@ import mat
 import obras
 import tkinter
 from tkinter import filedialog
+import webbrowser
 
 
 objeto = tkinter.Tk() # Instaciação da classe Tk
@@ -45,12 +46,13 @@ def opcao2():
         somatoria += float(Obra.ValorEstimado)
         contador += 1
     print(f"      Número de obras: {contador}                  Valor: {somatoria}")
+    Obra.fecharArquivo()
         
 
 def opcao3():
     obra1 = obras.Obra(ListagemDeObras(), False)
     leitura = open(obra1._arquivo)
-    arqRelatorio = open("obras.html", "w")
+    arqRelatorio = open("Obras.html", "w")
     Total = 0.0
     primeiro_ano = leitura.readlines()[0][0:4]
     ano = 0
@@ -96,8 +98,9 @@ def opcao3():
             '''
     while leitura.readline() != "":
         linha = leitura.readline()
-        Total += linha[61:71]
+        Total += float(linha[61:71])
         ano = linha[0:4]
+        valores_do_mesmo_ano += float(linha[61:71])
         obra_no_html = f'''
             <tr>
                 <td>{linha[0:4]}/{linha[4:6]}</td>
@@ -109,17 +112,25 @@ def opcao3():
             </tr>
 
         '''
+        if ano != ano_anterior:
+            obra_no_html += f'''
+                
+                <tr class="titulo">
+                    <th colspan="4">Total</th>
+                    <th>{valores_do_mesmo_ano}</th>
+                    <th></th>
+                </tr>
+            '''
+            valores_do_mesmo_ano = 0.0
         estrutura_html += obra_no_html
-        if ano == ano_anterior:
-            while ano == ano_anterior:
-                pass
+        
         
             
 
     estrutura_html += f'''
             <tr class="titulo">
                 <th colspan="4">Total Geral</th>
-                <th></th>
+                <th>{Total}</th>
                 <th></th>
             </tr>
         </table>
@@ -127,6 +138,9 @@ def opcao3():
 </body>
 </html>
         '''
+    arqRelatorio.write(estrutura_html)
+    webbrowser.open_new_tab("Obras.html")
+    arqRelatorio.close()
 
 def opcao4():
     math = mat.Matematica()
