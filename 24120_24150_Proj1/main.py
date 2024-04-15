@@ -48,12 +48,14 @@ def opcao2():
         
 
 def opcao3():
-    contador = 0
-    ano_anterior = 0.0
-    valores_do_mesmo_ano = 0 
     obra1 = obras.Obra(ListagemDeObras(), False)
     leitura = open(obra1._arquivo)
     arqRelatorio = open("obras.html", "w")
+    primeiro_ano = leitura.readlines()[0][0:4]
+    ano = 0
+    ano_anterior = primeiro_ano
+    valores_do_mesmo_ano = 0.0
+    
     estrutura_html = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -93,8 +95,9 @@ def opcao3():
             '''
     while leitura.readline() != "":
         linha = leitura.readline()
-        ano_anterior = linha[0:4]
-        estrutura_html += f'''
+        ano = linha[0:4]
+        valor = float(linha[61:71])
+        obra_no_html = f'''
             <tr>
                 <td>{linha[0:4]}/{linha[4:6]}</td>
                 <td>{linha[21:41]}</td>
@@ -105,14 +108,12 @@ def opcao3():
             </tr>
 
         '''
-        while ano_anterior == linha[0:4]:
-
-                estrutura_html += '''
-                    <tr class="subDivisoes">
-                        <th colspan="4">Total</th>
-                        <th></th>
-                    </tr>
-                        '''
+        estrutura_html += obra_no_html
+        if ano == ano_anterior:
+            while ano == ano_anterior:
+                pass
+        
+            
 
     estrutura_html += f'''
             <tr class="titulo">
@@ -173,3 +174,4 @@ def SeletorDeOpcoes():
 
 if __name__ == '__main__':
     SeletorDeOpcoes()
+
