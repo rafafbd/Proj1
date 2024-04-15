@@ -116,10 +116,7 @@ def opcao3():
 </body>
 </html>
         '''
-    
-    
 
-    
 def opcao4():
     math = mat.Matematica()
     base = int(input("Digite quantas linhas do triângulo de Pascal devem ser mostradas: "))
