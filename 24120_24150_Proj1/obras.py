@@ -13,12 +13,18 @@ class Obra:
     def lerCamposDoArquivo(self):
         linha = self._arquivo.readline()
         self.AnoDaObra = linha[0:4]
-        self.MesDaobra = linha[4:6]
-        self.Estilo = linha[6:21]
-        self.NomeDaObra = linha[21:41]
-        self.AutorDaObra = linha[41:61]
-        self.ValorEstimado = linha[62:71]
-        self.urlFoto = linha[71:171]
+        
+        self.MesDaobra = linha[5:7]
+        
+        self.Estilo = linha[8:23]
+        
+        self.NomeDaObra = linha[24:44]
+        
+        self.AutorDaObra = linha[45:65]
+        
+        self.ValorEstimado = linha[66:76]
+        
+        self.urlFoto = linha[77:172]
         return linha
 
     def gravarCamposNoArquivo(self):
@@ -38,7 +44,7 @@ class Obra:
         self._arquivo.close()
 
     def __str__(self) -> str:
-        linha = self.AnoDaObra + self.MesDaobra + self.Estilo + self.NomeDaObra + self.AutorDaObra + str(self.ValorEstimado) + self.urlFoto
+        linha = self.AnoDaObra + " " + self.MesDaobra + " " + self.Estilo + " " + self.NomeDaObra + " " + self.AutorDaObra + " " + str(self.ValorEstimado) + " " + self.urlFoto
         return linha
     
     def compararCom(self, outraObra) -> int:

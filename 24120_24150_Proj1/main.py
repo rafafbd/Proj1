@@ -42,8 +42,11 @@ def opcao2():
     contador = 0
     Obra = obras.Obra(ListagemDeObras(), False)
     while Obra.lerCamposDoArquivo() != "":
+        print("teste 0")
         print(Obra.lerCamposDoArquivo())
+        print("teste 1")
         somatoria += float(Obra.ValorEstimado)
+        print("teste 2")
         contador += 1
     print(f"      Número de obras: {contador}                  Valor: {somatoria}")
     Obra.fecharArquivo()
@@ -96,19 +99,18 @@ def opcao3():
 
             
             '''
-    while leitura.readline() != "":
-        linha = leitura.readline()
-        Total += float(linha[61:71])
-        ano = linha[0:4]
-        valores_do_mesmo_ano += float(linha[61:71])
+    while obra1.lerCamposDoArquivo() != "":
+        Total += float(obra1.ValorEstimado)
+        ano = obra1.AnoDaObra
+        valores_do_mesmo_ano += float(obra1.ValorEstimado)
         obra_no_html = f'''
             <tr>
-                <td>{linha[0:4]}/{linha[4:6]}</td>
-                <td>{linha[21:41]}</td>
-                <td>{linha[6:21]}</td>
-                <td>{linha[41:61]}</td>
-                <td>{linha[61:71]}</td>
-                <td><img scr="{linha[71:171]}"></td>
+                <td>{obra1.AnoDaObra}/{obra1.MesDaobra}</td>
+                <td>{obra1.NomeDaObra}</td>
+                <td>{obra1.Estilo}</td>
+                <td>{obra1.AutorDaObra}</td>
+                <td>{obra1.ValorEstimado}</td>
+                <td><img scr="{obra1.urlFoto}"></td>
             </tr>
 
         '''
