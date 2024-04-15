@@ -51,6 +51,7 @@ def opcao3():
     obra1 = obras.Obra(ListagemDeObras(), False)
     leitura = open(obra1._arquivo)
     arqRelatorio = open("obras.html", "w")
+    Total = 0.0
     primeiro_ano = leitura.readlines()[0][0:4]
     ano = 0
     ano_anterior = primeiro_ano
@@ -95,8 +96,8 @@ def opcao3():
             '''
     while leitura.readline() != "":
         linha = leitura.readline()
+        Total += linha[61:71]
         ano = linha[0:4]
-        valor = float(linha[61:71])
         obra_no_html = f'''
             <tr>
                 <td>{linha[0:4]}/{linha[4:6]}</td>
