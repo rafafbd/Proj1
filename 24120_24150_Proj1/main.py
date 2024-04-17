@@ -38,16 +38,20 @@ def opcao1():
     obra.fecharArquivo()
 
 def opcao2():
-    somatoria = 0
+    somatoria = 0.0
     contador = 0
     Obra = obras.Obra(ListagemDeObras(), False)
-    while Obra.lerCamposDoArquivo() != "":
-        print("teste 0")
-        print(Obra.lerCamposDoArquivo())
-        print("teste 1")
-        somatoria += float(Obra.ValorEstimado)
-        print("teste 2")
+    linha = "-"
+    while linha != "":
+        linha = Obra.lerCamposDoArquivo()
+        
+        print(linha)
+        print(Obra.ValorEstimado)
+        
+        somatoria += (Obra.ValorEstimado)
+        
         contador += 1
+        
     print(f"      Número de obras: {contador}                  Valor: {somatoria}")
     Obra.fecharArquivo()
         
@@ -57,7 +61,7 @@ def opcao3():
     leitura = open(obra1._arquivo)
     arqRelatorio = open("Obras.html", "w")
     Total = 0.0
-    primeiro_ano = leitura.readlines()[0][0:4]
+    primeiro_ano = leitura.readlines()[0][0:4] # primeiros 4 caracteres do primerio item da lista de linhas
     ano = 0
     ano_anterior = primeiro_ano
     valores_do_mesmo_ano = 0.0
