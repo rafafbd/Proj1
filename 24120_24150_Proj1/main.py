@@ -45,7 +45,7 @@ def opcao2():
     while linha != "":
         linha = Obra.lerCamposDoArquivo()            
         print(linha)
-        print(Obra.ValorEstimado)
+        
         
         somatoria += Obra.ValorEstimado
         
@@ -57,12 +57,12 @@ def opcao2():
 
 def opcao3():
     obra1 = obras.Obra(ListagemDeObras(), False)
-    leitura = open(obra1._arquivo)
+    # leitura = open(obra1._arquivo)
     arqRelatorio = open("Obras.html", "w")
     Total = 0.0
-    primeiro_ano = leitura.readlines()[0][0:4] # primeiros 4 caracteres do primerio item da lista de linhas
+    # primeiro_ano = leitura.readlines()[0][0:4] # primeiros 4 caracteres do primerio item da lista de linhas
     ano = 0
-    ano_anterior = primeiro_ano
+    # ano_anterior = primeiro_ano
     valores_do_mesmo_ano = 0.0
     
     estrutura_html = '''
@@ -117,16 +117,16 @@ def opcao3():
             </tr>
 
         '''
-        if ano != ano_anterior:
-            obra_no_html += f'''
+        # if ano != ano_anterior:
+        #     obra_no_html += f'''
                 
-                <tr class="titulo">
-                    <th colspan="4">Total</th>
-                    <th>{valores_do_mesmo_ano}</th>
-                    <th></th>
-                </tr>
-            '''
-            valores_do_mesmo_ano = 0.0
+        #         <tr class="titulo">
+        #             <th colspan="4">Total</th>
+        #             <th>{valores_do_mesmo_ano}</th>
+        #             <th></th>
+        #         </tr>
+        #     '''
+        #     valores_do_mesmo_ano = 0.0
         estrutura_html += obra_no_html
         
         
