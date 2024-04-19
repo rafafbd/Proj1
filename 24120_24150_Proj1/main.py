@@ -41,13 +41,14 @@ def opcao2():
     somatoria = 0
     contador = 0
     Obra = obras.Obra(ListagemDeObras(), False)
-    while Obra.lerCamposDoArquivo() != "":
-        print("teste 0")
-        print(Obra.lerCamposDoArquivo())
-        print("teste 1")
-        somatoria += float(Obra.ValorEstimado)
-        print("teste 2")
-        contador += 1
+    linha = "-"
+    while linha != "":
+        linha = Obra.lerCamposDoArquivo()
+        if linha != "":
+            print(linha)
+            somatoria += float(Obra.ValorEstimado)
+            contador += 1
+
     print(f"      Número de obras: {contador}                  Valor: {somatoria}")
     Obra.fecharArquivo()
         
