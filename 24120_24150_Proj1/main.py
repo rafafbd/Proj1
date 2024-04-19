@@ -33,7 +33,7 @@ def opcao1():
     url = input("Digite o link url da imagem da obra: ")
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
     obra.gravarCamposNoArquivo()
-    comando = 'sort z:\\dados\\dados.txt /o ordenado.txt /+1'
+    comando = 'sort z:\\dados\\ordenado.txt /o ordenado.txt /+1'
     os.system(comando) or None
     obra.fecharArquivo()
 
@@ -43,12 +43,11 @@ def opcao2():
     Obra = obras.Obra(ListagemDeObras(), False)
     linha = "-"
     while linha != "":
-        linha = Obra.lerCamposDoArquivo()
-        
+        linha = Obra.lerCamposDoArquivo()            
         print(linha)
         print(Obra.ValorEstimado)
         
-        somatoria += (Obra.ValorEstimado)
+        somatoria += Obra.ValorEstimado
         
         contador += 1
         

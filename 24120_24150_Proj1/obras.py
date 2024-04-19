@@ -12,23 +12,27 @@ class Obra:
 
     def lerCamposDoArquivo(self):
         linha = self._arquivo.readline()
-        self.AnoDaObra = linha[0:4]
-        
-        self.MesDaobra = linha[5:7]
-        
-        self.Estilo = linha[8:23]
-        
-        self.NomeDaObra = linha[24:44]
-        
-        self.AutorDaObra = linha[45:65]
+        if linha != "":
+            self.AnoDaObra = linha[0:4]
+            
+            self.MesDaobra = linha[5:7]
+            
+            self.Estilo = linha[8:23]
+            
+            self.NomeDaObra = linha[24:44]
+            
+            self.AutorDaObra = linha[45:65]
 
-        self.ValorEstimado = linha[66:76].strip()
-        self.ValorEstimado = float(self.ValorEstimado)
-        
-        self.urlFoto = linha[77:172]
+            self.ValorEstimado = linha[66:76].strip()
+            print(len(self.ValorEstimado))
+
+            self.ValorEstimado = float(self.ValorEstimado)
+            
+            self.urlFoto = linha[77:172]
         return linha
 
     def gravarCamposNoArquivo(self):
+        self._arquivo.write('\n')
         self._arquivo.write(self.__str__())
         
     def preencherCampos(self, novoAno: str, novoMes: str, novoAutor: str, novoNome: str, novoEstilo: str, novoValor, novaURL: str):
