@@ -72,10 +72,10 @@ def opcao3():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela de Obras</title>
     <style>
-        *{
-            text-align: center;
+        table{
+            margin: auto
         }
-        
+
         table, th, tr, td{
             border-collapse: collapse;
             border: 1px solid black;
@@ -132,8 +132,7 @@ def opcao3():
             </tr>
 
         '''
-        #print(obra_no_html)
-        #print(f'iteracao: {contador}')
+        
         contador += 1
     estrutura_html += obra_no_html
         
@@ -142,6 +141,11 @@ def opcao3():
             
 
     estrutura_html += f'''
+            <tr class="titulo">
+                            <th colspan="4">Total</th>
+                            <th>{valores_do_mesmo_ano}</th>
+                            <th></th>
+                        </tr>
             <tr class="titulo">
                 <th colspan="4">Total Geral</th>
                 <th>{Total}</th>
