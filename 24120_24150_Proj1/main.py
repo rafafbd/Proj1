@@ -26,7 +26,7 @@ def opcao1():
     obra = obras.Obra(ListagemDeObras(), True)
     ano = input("Digite o ano da obra: ")
     mes = input("Digite o mês da obra: ")
-    autor = input("Digite o nome do autor da obra")
+    autor = input("Digite o nome do autor da obra: ")
     nome = input("Digite o nome da obra: ")
     estilo = input("Digite o estilo da obra: ")
     valor = float(input("Informe o valor estimado da obra: "))
@@ -44,7 +44,7 @@ def opcao2():
     linha = "-"
     while linha != "":
         linha = Obra.lerCamposDoArquivo()   
-        if linha != "":         
+        if linha != "":     # Como a linha recebe outra string dentro do while, usa-se dupla verificacao    
             print(linha)
             print(Obra.ValorEstimado)
             
@@ -58,14 +58,13 @@ def opcao2():
 
 def opcao3():
     obra1 = obras.Obra(ListagemDeObras(), False)
-    # leitura = open(obra1._arquivo)
     arqRelatorio = open("Obras.html", "w")
     Total = 0.0
-    # primeiro_ano = leitura.readlines()[0][0:4] # primeiros 4 caracteres do primerio item da lista de linhas
-    ano = 0
-    # ano_anterior = primeiro_ano
-    valores_do_mesmo_ano = 0.0
-    
+    ano = 0 
+    # O codigo verifica se ano_anterior != ano e na primeira iteracao precisa ser falso
+    ano_anterior = ano 
+    valores_do_mesmo_ano = 0.0 # Soma dos valores de obras de mesmo ano
+    # Estrutura basica do html e iniciacao da tabela
     estrutura_html = '''
 <!DOCTYPE html>
 <html lang="en">
@@ -118,16 +117,16 @@ def opcao3():
             </tr>
 
         '''
-        # if ano != ano_anterior:
-        #     obra_no_html += f'''
-                
-        #         <tr class="titulo">
-        #             <th colspan="4">Total</th>
-        #             <th>{valores_do_mesmo_ano}</th>
-        #             <th></th>
-        #         </tr>
-        #     '''
-        #     valores_do_mesmo_ano = 0.0
+        if ano != ano_anterior:
+             obra_no_html += f'''
+                 <tr class="titulo">
+                     <th colspan="4">Total</th>
+                     <th>{valores_do_mesmo_ano}</th>
+                     <th></th>
+                 </tr>
+             '''
+             valores_do_mesmo_ano = 0.0
+        ano_anterior = ano
         estrutura_html += obra_no_html
         
         
