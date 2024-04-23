@@ -46,7 +46,6 @@ def opcao2():
         linha = Obra.lerCamposDoArquivo()   
         if linha != "":     # Como a linha recebe outra string dentro do while, usa-se dupla verificacao    
             print(linha)
-            print(Obra.ValorEstimado)
             
             somatoria += Obra.ValorEstimado
             
@@ -60,9 +59,7 @@ def opcao3():
     obra1 = obras.Obra(ListagemDeObras(), False)
     arqRelatorio = open("Obras.html", "w")
     Total = 0.0
-    ano = 0 
-    # O codigo verifica se ano_anterior != ano e na primeira iteracao precisa ser falso
-    ano_anterior = ano 
+    ano = 500000 # 500000 garante que o ano nao e igual a nenhum outro ano 
     valores_do_mesmo_ano = 0.0 # Soma dos valores de obras de mesmo ano
     # Estrutura basica do html e iniciacao da tabela
     estrutura_html = '''
@@ -104,6 +101,7 @@ def opcao3():
             '''
     while obra1.lerCamposDoArquivo() != "":
         Total += float(obra1.ValorEstimado)
+        ano_anterior = ano
         ano = obra1.AnoDaObra
         valores_do_mesmo_ano += float(obra1.ValorEstimado)
         obra_no_html = f'''
@@ -126,7 +124,6 @@ def opcao3():
                  </tr>
              '''
              valores_do_mesmo_ano = 0.0
-        ano_anterior = ano
         estrutura_html += obra_no_html
         
         
