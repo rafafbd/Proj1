@@ -56,11 +56,13 @@ def opcao2():
         
 
 def opcao3():
+    obra_no_html = ''
     obra1 = obras.Obra(ListagemDeObras(), False)
     arqRelatorio = open("Obras.html", "w")
     Total = 0.0
     ano = 500000 # 500000 garante que o ano nao e igual a nenhum outro ano 
     valores_do_mesmo_ano = 0.0 # Soma dos valores de obras de mesmo ano
+    contador = 1
     # Estrutura basica do html e iniciacao da tabela
     estrutura_html = '''
 <!DOCTYPE html>
@@ -70,6 +72,10 @@ def opcao3():
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela de Obras</title>
     <style>
+        *{
+            text-align: center;
+        }
+        
         table, th, tr, td{
             border-collapse: collapse;
             border: 1px solid black;
@@ -103,8 +109,19 @@ def opcao3():
         Total += float(obra1.ValorEstimado)
         ano_anterior = ano
         ano = obra1.AnoDaObra
+        
+
+        if contador != 1 and ano != ano_anterior: # Se o ano for diferente do anterior e nao for a primeira iteracao
+                    obra_no_html += f'''
+                        <tr class="titulo">
+                            <th colspan="4">Total</th>
+                            <th>{valores_do_mesmo_ano}</th>
+                            <th></th>
+                        </tr>
+                    '''
+                    valores_do_mesmo_ano = 0.0
         valores_do_mesmo_ano += float(obra1.ValorEstimado)
-        obra_no_html = f'''
+        obra_no_html += f'''
             <tr>
                 <td>{obra1.AnoDaObra}/{obra1.MesDaobra}</td>
                 <td>{obra1.NomeDaObra}</td>
@@ -115,16 +132,11 @@ def opcao3():
             </tr>
 
         '''
-        if ano != ano_anterior:
-             obra_no_html += f'''
-                 <tr class="titulo">
-                     <th colspan="4">Total</th>
-                     <th>{valores_do_mesmo_ano}</th>
-                     <th></th>
-                 </tr>
-             '''
-             valores_do_mesmo_ano = 0.0
-        estrutura_html += obra_no_html
+        #print(obra_no_html)
+        #print(f'iteracao: {contador}')
+        contador += 1
+    estrutura_html += obra_no_html
+        
         
         
             
