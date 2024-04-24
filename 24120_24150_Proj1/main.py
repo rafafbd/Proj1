@@ -79,7 +79,7 @@ def opcao3():
     <div>
         <table>
             <tr class="titulo">
-                <th colspan="6">RELATÓRIO DE OBRAS DA GALERIA VIRTUAL</th>
+                <th colspan="6">RELATORIO DE OBRAS DA GALERIA VIRTUAL</th>
             </tr>
 
             
