@@ -43,10 +43,10 @@ def opcao2():
     contador = 0
     Obra = obras.Obra(ListagemDeObras(), False)
     linha = "-"
+    print("Ano Mês Estilo             Nome                 Autor                   Valor           link\n")
     while linha != "":
         linha = Obra.lerCamposDoArquivo()   
         if linha != "":     # Como a linha recebe outra string dentro do while, usa-se dupla verificacao    
-            print("Ano Mês Estilo        Nome                        Autor                   Valor           link\n")
             print(linha)
             
             somatoria += float(Obra.ValorEstimado)
@@ -140,9 +140,8 @@ def opcao3():
     arqRelatorio.close()
 
 def opcao4():
-    math = mat.Matematica()
     base = int(input("Digite quantas linhas do triângulo de Pascal devem ser mostradas: "))
-    math._numeroBase = base
+    math = mat.Matematica(base)
     triangulo = math.trianguloDePascal()
     for linha in triangulo:
         print(linha)

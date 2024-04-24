@@ -1,6 +1,6 @@
 class Matematica:
-    def __init__(self):
-        self._numeroBase = 0
+    def __init__(self, numero_base):
+        self._numeroBase = numero_base
 
     def fatorial (self, x :int) -> int:
         produtorio = 2
