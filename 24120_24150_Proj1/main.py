@@ -47,7 +47,7 @@ def opcao2():
         if linha != "":     # Como a linha recebe outra string dentro do while, usa-se dupla verificacao    
             print(linha)
             
-            somatoria += Obra.ValorEstimado
+            somatoria += float(Obra.ValorEstimado)
             
             contador += 1
         
