@@ -46,14 +46,14 @@ def opcao2():
     while linha != "":
         linha = Obra.lerCamposDoArquivo()   
         if linha != "":     # Como a linha recebe outra string dentro do while, usa-se dupla verificacao    
-            print("Ano Mês Nome        Autor         Estilo         Valor          link")
+            print("Ano Mês Estilo        Nome                        Autor                   Valor           link\n")
             print(linha)
             
             somatoria += float(Obra.ValorEstimado)
             
             contador += 1
         
-    print(f"      Número de obras: {contador}                  Valor: {somatoria}")
+    print(f"\n                      Número de obras: {contador}                  Valor: {somatoria}")
     Obra.fecharArquivo()
         
 
