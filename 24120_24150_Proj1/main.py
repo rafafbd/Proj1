@@ -117,7 +117,7 @@ def opcao3():
         
         
         
-            
+
 
     estrutura_html += f'''
             <tr class="titulo">

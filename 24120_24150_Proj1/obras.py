@@ -20,7 +20,7 @@ class Obra:
             self.AutorDaObra = linha[45:65]
             self.ValorEstimado = linha[66:76].strip()
             self.ValorEstimado = (self.ValorEstimado)
-            self.urlFoto = linha[77:172]
+            self.urlFoto = linha[77:177]
         return linha
 
     def gravarCamposNoArquivo(self):
