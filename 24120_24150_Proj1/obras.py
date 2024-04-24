@@ -39,7 +39,8 @@ class Obra:
         self.urlFoto = novaURL.ljust(100, " ")
 
     def fecharArquivo(self):
-        self._arquivo.close()
+        if self._arquivo.close() == False:
+            self._arquivo.close()
 
     def __str__(self) -> str:
         linha = self.AnoDaObra + " " + self.MesDaobra + " " + self.Estilo + " " + self.NomeDaObra + " " + self.AutorDaObra + " " + str(self.ValorEstimado) + " " + self.urlFoto
