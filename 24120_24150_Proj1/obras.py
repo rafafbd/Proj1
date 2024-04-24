@@ -47,8 +47,9 @@ class Obra:
     
     def compararCom(self, outraObra) -> int:
         valor = 3   # Para ser diferente de qualquer valor pedido
-        outraInstancia = outraObra
-        instancia = int(self.AnoDaObra + self.MesDaobra + self.AutorDaObra + self.NomeDaObra)
+        outraInstancia = outraObra.AnoDaObra + outraObra.MesDaobra + outraObra.AutorDaObra + outraObra.NomeDaObra
+
+        instancia = self.AnoDaObra + self.MesDaobra + self.AutorDaObra + self.NomeDaObra
 
         if instancia < outraInstancia:
             valor = -1

@@ -32,6 +32,7 @@ def opcao1():
     valor = float(input("Informe o valor estimado da obra: "))
     url = input("Digite o link url da imagem da obra: ")
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
+    
     obra.gravarCamposNoArquivo()
     comando = 'sort z:\\dados\\dados.txt /o ordenado.txt /+1'
     os.system(comando) or None
@@ -71,30 +72,7 @@ def opcao3():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela de Obras</title>
-    <style>
-        table{
-            margin: auto
-        }
-
-        table, th, tr, td{
-            border-collapse: collapse;
-            border: 1px solid black;
-            overflow: hidden;
-        }
-
-        .titulo{
-            background-color: rgb(126, 199, 231);
-        }
-
-        .subDivisoes{
-            background-color: rgb(209, 254, 254);
-        }
-
-        .pintado{
-            background-color: rgb(252, 252, 181);
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div>
