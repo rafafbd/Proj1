@@ -1,5 +1,4 @@
 class Matematica:
-
     def __init__(self):
         self._numeroBase = 0
 
@@ -9,11 +8,8 @@ class Matematica:
         while produtorio <= x:
             valor *= produtorio
             produtorio += 1
-        
-
         return valor
     
-
     def trianguloDePascal(self):
         triangulo = []
         num = 0

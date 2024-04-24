@@ -11,8 +11,8 @@ class Obra:
         self._arquivo = open(nomeArq, "a" if paraGravacao else "r")
 
     def lerCamposDoArquivo(self):
-        linha = self._arquivo.readline()
-        if linha != "":
+        if self._arqParaGravacao == False:
+            linha = self._arquivo.readline()
             self.AnoDaObra = linha[0:4]
             self.MesDaobra = linha[5:7]
             self.Estilo = linha[8:23]
@@ -24,9 +24,10 @@ class Obra:
         return linha
 
     def gravarCamposNoArquivo(self):
-        self._arquivo.write('\n')
-        self._arquivo.write(self.__str__())
-        
+        if self._arqParaGravacao:    
+            self._arquivo.write('\n')
+            self._arquivo.write(self.__str__())
+            
     def preencherCampos(self, novoAno: str, novoMes: str, novoAutor: str, novoNome: str, novoEstilo: str, novoValor, novaURL: str):
         self.AnoDaObra = novoAno.rjust(4, " ")
         self.MesDaobra = novoMes.rjust(2, " ")
@@ -57,3 +58,5 @@ class Obra:
             
         if instancia > outraInstancia:
             valor = 1
+
+        return valor
