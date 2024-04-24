@@ -128,7 +128,7 @@ def opcao3():
                 <td>{obra1.Estilo}</td>
                 <td>{obra1.AutorDaObra}</td>
                 <td>{obra1.ValorEstimado}</td>
-                <td><img scr="{obra1.urlFoto}"></td>
+                <td><img src="{obra1.urlFoto.strip()}"></td>
             </tr>
 
         '''
