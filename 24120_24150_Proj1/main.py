@@ -43,7 +43,7 @@ def opcao2():
     contador = 0
     Obra = obras.Obra(ListagemDeObras(), False)
     linha = "-"
-    print("Ano Mês Estilo             Nome                 Autor                   Valor           link\n")
+    print("\nAno  Mês Estilo         Nome                 Autor                   Valor           link\n")
     while linha != "":
         linha = Obra.lerCamposDoArquivo()   
         if linha != "":     # Como a linha recebe outra string dentro do while, usa-se dupla verificacao    

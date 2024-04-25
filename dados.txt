@@ -1,7 +1,5 @@
-
-1889 06 pos-impressionista Noite Estrelada      V. van Gogh          500000000.0 https://static.todamateria.com.br/upload/an/oi/anoiteestrelada-cke.jpg       
+1889 06 Modernismo      Noite Estrelada      V. van Gogh          500000000.0 https://static.todamateria.com.br/upload/an/oi/anoiteestrelada-cke.jpg       
 1920 02 estilo          nome                 autor                2902.0     hfuaefuaefae                                                                                        
-1922 12 EstiloTeste     NomeTeste            autorTeste           12938.0    fuaehufeahff                                                                                        
-1928 02 Modernismo         A Lua                Tarsila do Amaral    74000000.0  https://colegiovidanova.com.br/wp-content/uploads/2020/10/a-lua.jpg
-1928 04 Modernismo         Abapuru              Tarsila do Amaral    200000000.0 https://upload.wikimedia.org/wikipedia/pt/thumb/b/bd/Abaporu.jpg/253px-Abaporu.jpg
-2192 12 f               fea                  fesafea              13231.0    gsgwgwe                                                                                             
+1920 12 estilo          nome                 autor                69.0       link                                                                                                1920 12 estilo          nome                 autor                202.0      fiufaef                                                                                             
+1928 02 Modernismo      A Lua                Tarsila do Amaral    74000000.0  https://colegiovidanova.com.br/wp-content/uploads/2020/10/a-lua.jpg
+1928 04 Modernismo      Abapuru              Tarsila do Amaral    200000000.0 https://upload.wikimedia.org/wikipedia/pt/thumb/b/bd/Abaporu.jpg/253px-Abaporu.jpg
