@@ -32,11 +32,11 @@ def opcao1():
     valor = float(input("Informe o valor estimado da obra: "))
     url = input("Digite o link url da imagem da obra: ")
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
-    
     obra.gravarCamposNoArquivo()
+    obra.fecharArquivo()
     comando = 'sort c:\\temp\\dados.txt /o dados.txt /+1'
     os.system(comando) or None
-    obra.fecharArquivo()
+    
 
 def opcao2():
     somatoria = 0
