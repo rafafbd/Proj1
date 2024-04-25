@@ -24,8 +24,9 @@ class Obra:
 
     def gravarCamposNoArquivo(self):
         if self._arqParaGravacao:    
-            self._arquivo.write('\n')
             self._arquivo.write(self.__str__())
+            self._arquivo.write('\n')
+
             
     def preencherCampos(self, novoAno: str, novoMes: str, novoAutor: str, novoNome: str, novoEstilo: str, novoValor, novaURL: str):
         self.AnoDaObra = novoAno.rjust(4, " ")

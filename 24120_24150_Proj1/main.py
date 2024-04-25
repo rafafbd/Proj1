@@ -33,8 +33,8 @@ def opcao1():
     url = input("Digite o link url da imagem da obra: ")
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
     obra.gravarCamposNoArquivo()
-    obra.fecharArquivo()
-    comando = 'sort c:\\temp\\dados.txt /o dados.txt /+1'
+    obra.fecharArquivo() 
+    comando = f'sort {obra._arquivo} /o dados_ordenados.txt /+1'
     os.system(comando) or None
     
 
