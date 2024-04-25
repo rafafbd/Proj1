@@ -34,7 +34,7 @@ def opcao1():
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
     
     obra.gravarCamposNoArquivo()
-    comando = 'sort z:\\dados\\dados.txt /o ordenado.txt /+1'
+    comando = 'sort c:\\temp\\dados.txt /o dados.txt /+1'
     os.system(comando) or None
     obra.fecharArquivo()
 
