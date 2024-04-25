@@ -7,6 +7,11 @@ table, th, tr, td{
     border: 1px solid black;
     overflow: hidden;
 }
+td{
+    text-align: center;
+    padding: 5px;
+}
+
 
 .titulo{
     background-color: rgb(126, 199, 231);
@@ -20,5 +25,6 @@ table, th, tr, td{
     background-color: rgb(252, 252, 181);
 }
 img{
-    height: 80px;
+    height: 120px;
+    width: 120px;
 }
