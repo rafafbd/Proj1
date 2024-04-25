@@ -34,7 +34,7 @@ def opcao1():
     obra.preencherCampos(ano, mes, autor, nome, estilo, valor, url)
     obra.gravarCamposNoArquivo()
     obra.fecharArquivo() 
-    comando = f'sort {obra._arquivo} /o dados_proj1.txt'
+    comando = f'sort dados.txt /o dados.txt'
     os.system(comando) or None
     
 
