@@ -92,7 +92,7 @@ def opcao3():
 
         if contador != 1 and ano != ano_anterior: # Se o ano for diferente do anterior e nao for a primeira iteracao
                     obra_no_html += f'''
-                        <tr class="titulo">
+                        <tr class="subDivisoes">
                             <th colspan="4">Total</th>
                             <th>{valores_do_mesmo_ano}</th>
                             <th></th>
@@ -101,7 +101,7 @@ def opcao3():
                     valores_do_mesmo_ano = 0.0
         valores_do_mesmo_ano += float(obra1.ValorEstimado)
         obra_no_html += f'''
-            <tr>
+            <tr class = 'pintado'>
                 <td>{obra1.AnoDaObra}/{obra1.MesDaobra}</td>
                 <td>{obra1.NomeDaObra}</td>
                 <td>{obra1.Estilo}</td>
@@ -120,7 +120,7 @@ def opcao3():
 
 
     estrutura_html += f'''
-            <tr class="titulo">
+            <tr class="subDivisoes">
                             <th colspan="4">Total</th>
                             <th>{valores_do_mesmo_ano}</th>
                             <th></th>
